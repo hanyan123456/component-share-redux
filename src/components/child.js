@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as types from '../redux/actions/countAction'
 // import store from '../redux';
 class Child extends Component {
     constructor(props, ...rest) {
@@ -17,16 +18,32 @@ class Child extends Component {
             <div>
                 <span>子组件</span>
                 <div>{this.props.state.count}</div>
+                <button onClick={this.props.add}>增加</button>
             </div>
         );
     }
 }
 
 Child.propTypes = {};
-
-// export default Child;
-export default connect((state) => {
+function mapStateToProps(state) {
+    console.log(state)
     return {
         state: state
     }
-})(Child)
+}
+function mapDispathToProps(dispatch) {
+    return {
+        add() {
+            dispatch({
+                type: types.ADD_COUNT
+            })
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispathToProps)(Child)
+// export default Child;
+// export default connect((state) => {
+//     return {
+//         state: state
+//     }
+// })(Child)

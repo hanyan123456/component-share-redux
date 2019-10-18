@@ -28,12 +28,12 @@ class Parents extends Component {
     }
 
     render() {
-        const { count } = this.state
+        // const { count } = this.state
         return (
             <div>
                 <span>父组件</span>
                 <button onClick={this.addCount}>增加</button>
-                <span>{count}</span>
+                {/* <span>{count}</span> */}
             </div>
         );
     }

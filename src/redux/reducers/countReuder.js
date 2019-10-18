@@ -5,27 +5,18 @@
  */
 import * as types from '../actions/countAction'
 
-// const initState = {
-//     count: 0
-// }
-// export default (state = initState, action) => {
-//     switch (action.type) {
-//         case types.ADD_COUNT:
-
-//     }
-//     return state;
-// }
 const reducer = (state = {
     count: 0
 }, action) => {
     switch (action.type) {
         case types.ADD_COUNT:
+            console.log(state.count + 1)
             return {
                 count: state.count + 1
             }
-        default:
-            return state
+            default:
+                return state
     }
 
 }
-export default reducer
+export default reducer;
